@@ -33,6 +33,7 @@ async function checkConnection() {
 
     success('Database connection successful.');
   } catch (e) {
+    console.error(e);
     throw new Error('Unable to connect to the database.');
   }
 }
