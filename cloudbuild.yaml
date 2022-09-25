@@ -2,6 +2,7 @@ steps:
     # Download .env file
     - name: "gcr.io/cloud-builders/gsutil"
       args: ["cp", "gs://env-variables-umami/.prod.env", ".env"]
+      args: ["cp", ".env", "/app/.env"]
     # build the container image
     - name: 'gcr.io/cloud-builders/docker'
       args: [ 'build', '-t', 'gcr.io/${_PROJECT_ID}/umami', '.' ]
