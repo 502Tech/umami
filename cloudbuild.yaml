@@ -1,7 +1,7 @@
 steps:
     # Download .env file
     - name: "gcr.io/cloud-builders/gsutil"
-      args: ["cp", "gs://env-variables-umami/.prod.env", ".env"]
+      args: ["cp", "gs://${_GCP_ENV_BUCKET}/${_ENV_FILENAME}", ".env"]
     # Duplicate .env file to app/
     - name: "gcr.io/cloud-builders/gsutil"
       args: ["cp", ".env", "/app/.env"]
